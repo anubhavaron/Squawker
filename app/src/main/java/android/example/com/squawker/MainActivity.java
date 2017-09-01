@@ -18,6 +18,7 @@ package android.example.com.squawker;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.example.com.squawker.fcm.SquawkFirebaseIntentService;
 import android.example.com.squawker.following.FollowingPreferenceActivity;
 import android.example.com.squawker.provider.SquawkContract;
 import android.example.com.squawker.provider.SquawkProvider;
@@ -63,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SquawkFirebaseIntentService s=new SquawkFirebaseIntentService();
+        s.onTokenRefresh();
+
 
         mRecyclerView = (RecyclerView) findViewById(R.id.squawks_recycler_view);
 
